@@ -1,5 +1,5 @@
-const filterElement = (caption) => {
-  return `<a href="#${caption.toLowerCase()}" class="main-navigation__item">${caption}</a>`;
+const filterElement = (id, title) => {
+  return `<a href="#${id}" class="main-navigation__item">${title}</a>`;
 };
 
 const filterOtherElement = (amount) => {
