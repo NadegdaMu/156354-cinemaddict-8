@@ -14,24 +14,24 @@ const getRandomInRange = (min, max) => {
 };
 
 // Массив имен фильтров
-const Filters = [
-    {
-      'id': 'favorites',
-      'title': 'Favorites'
-    },
-    {
-      'id': 'history',
-      'title': 'History'
-    },
-    {
-      'id': 'watchlist',
-      'title': 'Watchlist'
-    },
-    {
-      'id': 'all',
-      'title': 'All movies'
-    }
-  ]
+const filters = [
+  {
+    id: `favorites`,
+    title: `Favorites`
+  },
+  {
+    id: `history`,
+    title: `History`
+  },
+  {
+    id: `watchlist`,
+    title: `Watchlist`
+  },
+  {
+    id: `all`,
+    title: `All movies`
+  }
+];
 
 // функция по добавлению класса первому элементу
 const firstElementFilter = () => {
@@ -41,8 +41,8 @@ const firstElementFilter = () => {
 
 // Функция отрисовки фильтров без счетчиков
 const renderFilterElements = () => {
-  for (const filter of Filters) {
-    filterElements.insertAdjacentHTML(`afterBegin`, filterElement(filter['id'], filter['title']));
+  for (const filter of filters) {
+    filterElements.insertAdjacentHTML(`afterBegin`, filterElement(filter.id, filter.title));
   }
 };
 
@@ -76,7 +76,7 @@ renderListFilms(NUMBER_OTHER_FILMS, otherListFilms[1]);
 // Обработка кликов по фильтрам и вывод произволного кол-ва фильмов
 const allFilterElements = filterElements.querySelectorAll(`.main-navigation__item`);
 
-const filterClickHandler = (event) => {
+const filterClickHandler = () => {
   listFilm.innerHTML = ``;
   renderListFilms(getRandomInRange(1, 5), listFilm);
 };
