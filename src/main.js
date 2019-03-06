@@ -1,5 +1,6 @@
 import {filterElement, filterOtherElement} from './template-filter';
 import {templateOneFilm} from './template-film';
+import {film} from './get-film';
 
 
 const filterElements = document.querySelector(`.main-navigation`);
@@ -63,9 +64,20 @@ const renderAmountFilter = () => {
 renderAmountFilter();
 
 // Функция отрисовки карточки фильмов
+// / Получаем массив объектов
+const filmList = () => {
+  let filmGenerator = film();
+  const arrayFilm = [];
+  for (let i = 0; i < NUMBER_FILMS; i++) {
+    arrayFilm.push(filmGenerator.getFilmElement());
+  }
+  return arrayFilm;
+};
+
+const films = filmList();
 const renderListFilms = (number, el) => {
   for (let k = 0; k < number; k++) {
-    el.insertAdjacentHTML(`beforeend`, templateOneFilm());
+    el.insertAdjacentHTML(`beforeend`, templateOneFilm(films[k]));
   }
 };
 
