@@ -2,6 +2,7 @@ import {filterElement, filterOtherElement} from './template-filter';
 import {templateOneFilm} from './template-film';
 import {getFilmElement} from './get-film';
 import {Film} from './film';
+import {FilmPopap} from './film-popap';
 
 
 const filterElements = document.querySelector(`.main-navigation`);
@@ -66,27 +67,33 @@ renderAmountFilter();
 
 // Функция отрисовки карточки фильмов
 // / Получаем массив объектов
-/*const filmList = () => {
+const filmList = () => {
   const arrayFilm = [];
   for (let i = 0; i < NUMBER_FILMS; i++) {
     arrayFilm.push(getFilmElement());
   }
   return arrayFilm;
-};*/
+};
 
-const firstFilm = new Film(getFilmElement());
-firstTask.render(listFilm);
+const openCommentsPopap = () => {
+  const filmPopapElement = new FilmPopap(this);
+  filmPopapElement.render();
+};
 
-/*const films = filmList();
+
+const films = filmList();
 const renderListFilms = (number, el) => {
   for (let k = 0; k < number; k++) {
-    el.insertAdjacentHTML(`beforeend`, templateOneFilm(films[k]));
-  }
-};*/
+    const firstFilm = new Film(films[k]);
 
-/*renderListFilms(NUMBER_FILMS, listFilm);
+    firstFilm.render(el);
+    firstFilm.onClick = openCommentsPopap.bind(firstFilm);
+  }
+};
+
+renderListFilms(NUMBER_FILMS, listFilm);
 renderListFilms(NUMBER_OTHER_FILMS, otherListFilms[0]);
-renderListFilms(NUMBER_OTHER_FILMS, otherListFilms[1]);*/
+renderListFilms(NUMBER_OTHER_FILMS, otherListFilms[1]);
 
 // Обработка кликов по фильтрам и вывод произволного кол-ва фильмов
 const allFilterElements = filterElements.querySelectorAll(`.main-navigation__item`);
@@ -97,3 +104,11 @@ const filterClickHandler = () => {
 };
 
 allFilterElements.forEach((el) => el.addEventListener(`click`, filterClickHandler));
+
+
+// Отрисовка попапа
+
+
+// Открытие и закрытие попапа
+
+
