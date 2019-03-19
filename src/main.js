@@ -3,6 +3,7 @@ import {templateOneFilm} from './template-film';
 import {getFilmElement} from './get-film';
 import {Film} from './film';
 import {FilmPopap} from './film-popap';
+import {createElement} from './creat-element';
 
 
 const filterElements = document.querySelector(`.main-navigation`);
@@ -75,25 +76,28 @@ const filmList = () => {
   return arrayFilm;
 };
 
-const openCommentsPopap = () => {
+/*const openCommentsPopap = () => {
   const filmPopapElement = new FilmPopap(this);
   filmPopapElement.render();
-};
+};*/
 
 
 const films = filmList();
-const renderListFilms = (number, el) => {
+/*const renderListFilms = (number, el) => {
   for (let k = 0; k < number; k++) {
     const firstFilm = new Film(films[k]);
 
     firstFilm.render(el);
     firstFilm.onClick = openCommentsPopap.bind(firstFilm);
   }
-};
+};*/
 
-renderListFilms(NUMBER_FILMS, listFilm);
-renderListFilms(NUMBER_OTHER_FILMS, otherListFilms[0]);
-renderListFilms(NUMBER_OTHER_FILMS, otherListFilms[1]);
+const firstFilm = new Film(films);
+firstFilm.render(listFilm);
+
+//renderListFilms(NUMBER_FILMS, listFilm);
+//renderListFilms(NUMBER_OTHER_FILMS, otherListFilms[0]);
+//renderListFilms(NUMBER_OTHER_FILMS, otherListFilms[1]);
 
 // Обработка кликов по фильтрам и вывод произволного кол-ва фильмов
 const allFilterElements = filterElements.querySelectorAll(`.main-navigation__item`);
@@ -110,5 +114,6 @@ allFilterElements.forEach((el) => el.addEventListener(`click`, filterClickHandle
 
 
 // Открытие и закрытие попапа
+
 
 

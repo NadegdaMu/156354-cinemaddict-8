@@ -1,3 +1,5 @@
+import {createElement} from './creat-element';
+
 class Film {
   constructor(data) {
     this._title = data.title;
@@ -34,8 +36,12 @@ class Film {
   }
 
   render (container) {
-    this._element = this.template;
-    container.insertAdjacentHTML(`beforeend`, this.template);
+    if (this._element) {
+      container.removeChild(this._element);
+      this._element = null;
+    }
+    this._element = createElement(this.template);
+    container.appendChild(this._element);
   }
 
   set onClick (fn) {

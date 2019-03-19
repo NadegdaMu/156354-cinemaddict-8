@@ -769,6 +769,3 @@ a:hover {
 .film-details__user-rating-input:checked + .film-details__user-rating-label {
   background-color: #ffe800;
 }
-
-.film-details {display: none;}
-.show {display: block;}
