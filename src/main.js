@@ -83,21 +83,20 @@ const filmList = () => {
 
 
 const films = filmList();
-/*const renderListFilms = (number, el) => {
+const renderListFilms = (number, el) => {
   for (let k = 0; k < number; k++) {
     const firstFilm = new Film(films[k]);
-
     firstFilm.render(el);
-    firstFilm.onClick = openCommentsPopap.bind(firstFilm);
+    //firstFilm.onClick = openCommentsPopap.bind(firstFilm);
   }
-};*/
+};
 
-const firstFilm = new Film(films);
-firstFilm.render(listFilm);
+//const firstFilm = new Film(films);
+//firstFilm.render(listFilm);
 
-//renderListFilms(NUMBER_FILMS, listFilm);
-//renderListFilms(NUMBER_OTHER_FILMS, otherListFilms[0]);
-//renderListFilms(NUMBER_OTHER_FILMS, otherListFilms[1]);
+renderListFilms(NUMBER_FILMS, listFilm);
+renderListFilms(NUMBER_OTHER_FILMS, otherListFilms[0]);
+renderListFilms(NUMBER_OTHER_FILMS, otherListFilms[1]);
 
 // Обработка кликов по фильтрам и вывод произволного кол-ва фильмов
 const allFilterElements = filterElements.querySelectorAll(`.main-navigation__item`);
